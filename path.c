@@ -19,7 +19,7 @@ char *get_path(char **args)
 			find_path = malloc(sizeof(char) * (_strlen(*env) + 1));
 			if (find_path == NULL)
 			{
-				perror("Memory error in path");
+				/*perror("Memory error in path");*/
 				free(find_path);
 				free_grid(args);
 				return (NULL);
