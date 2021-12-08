@@ -21,6 +21,7 @@ char *get_path(char **args)
 			{
 				perror("Memory error in path");
 				free(find_path);
+				free_grid(args);
 				return (NULL);
 			}
 			_strcpy(find_path, *env);
@@ -28,7 +29,6 @@ char *get_path(char **args)
 		}
 		env++;
 	}
-	(void)args;
 	free_grid(args);
 	free(find_path);
 	return (NULL);
