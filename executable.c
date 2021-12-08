@@ -36,8 +36,8 @@ int executable(char *command, char **args)
 	else
 	{
 		wait(&status);
-		/*free_grid(args);
-		free(command);*/
+		free_grid(args);
+		/*free(command);*/
 	}
 	return (1);
 }

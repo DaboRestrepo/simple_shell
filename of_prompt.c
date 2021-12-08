@@ -25,7 +25,8 @@ void prompt(void)
 		if (!args)
 			continue;
 		status = is_built_in(args);
-		if (status == -1)
-			perror("./hsh");
+		/*if (status == -1)
+			perror("./hsh");*/
+		(void)status;
 	}
 }
