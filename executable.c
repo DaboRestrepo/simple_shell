@@ -22,7 +22,7 @@ int executable(char *command, char **args)
 	{
 		if (execve(command, args, NULL) == -1)
 		{
-			/*perror("Couldn't execute the command");*/
+			/*perror("./hsh");*/
 			free_grid(args);
 			free(command);
 			return (-1);
