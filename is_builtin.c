@@ -37,6 +37,11 @@ int is_built_in(char **args)
 		{
 			path = get_path(args);
 			command = concat_path(path, args);
+			if (!command)
+			{
+				free_grid(args);
+				return (-1);
+			}
 			return (executable(command, args));
 		}
 		pos++;

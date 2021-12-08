@@ -27,11 +27,6 @@ void prompt(void)
 
 		status = is_built_in(args);
 		if (status == -1)
-		{
-			/*free_grid(args);*/
-			free(str);
-			/* return; */
-		}
-		free_grid(args);
+		continue;
 	}
 }

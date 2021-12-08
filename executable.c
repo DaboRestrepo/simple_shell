@@ -22,15 +22,16 @@ int executable(char *command, char **args)
 		if (execve(command, args, NULL) == -1)
 		{
 			perror("./hsh");
+			free_grid(args);
 			free(command);
 			return (-1);
 		}
-		else
-			free(command);
 	}
 	else
 	{
 		wait(&status);
+		free_grid(args);
+		free(command);
 	}
 	return (1);
 }

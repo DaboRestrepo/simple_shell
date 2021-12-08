@@ -22,7 +22,7 @@ char **token_1(char *str, char *delim)
 	pos++;
 	while (pos < wc)
 	{
-		split[pos] = strdup(strtok(NULL, delim));
+		split[pos] = _strdup(strtok(NULL, delim));
 		pos++;
 	}
 	split[pos] = NULL;
