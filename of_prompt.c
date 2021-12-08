@@ -24,9 +24,7 @@ void prompt(void)
 		args = token_1(str, " \n\t");
 		if (!args)
 			continue;
-
 		status = is_built_in(args);
-		if (status == -1)
-		continue;
+		(void)status;
 	}
 }

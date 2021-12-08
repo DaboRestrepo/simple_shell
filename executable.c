@@ -16,22 +16,28 @@ int executable(char *command, char **args)
 	if (pid == -1)
 	{
 		perror("No such file or directory\n");
+		return (-1);
 	}
-	if (pid == 0)
+	else if (pid == 0)
 	{
 		if (execve(command, args, NULL) == -1)
 		{
-			perror("./hsh");
+			perror("./hsh\n");
 			free_grid(args);
 			free(command);
 			return (-1);
+		}
+		else
+		{
+			free_grid(args);
+			free(command);
 		}
 	}
 	else
 	{
 		wait(&status);
 		free_grid(args);
-		free(command);
+		/*free(command);*/
 	}
 	return (1);
 }

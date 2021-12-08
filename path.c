@@ -28,6 +28,8 @@ char *get_path(char **args)
 		}
 		env++;
 	}
+	(void)args;
 	free_grid(args);
+	free(find_path);
 	return (NULL);
 }

@@ -32,8 +32,9 @@ char *concat_path(char *path, char **args)
 			free_grid(parsing);
 			return (command);
 		}
-		free(command);
+		/*free(command);*/
 	}
 	free_grid(parsing);
+	free_grid(args);
 	return (NULL);
 }

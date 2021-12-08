@@ -14,6 +14,7 @@ char **token_1(char *str, char *delim)
 	split = malloc(sizeof(char *) * (wc + 1));
 	if (split == NULL)
 	{
+		free(str);
 		free(split);
 		perror("Memory error in the parsing process\n");
 		return (NULL);

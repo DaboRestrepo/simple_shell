@@ -1,11 +1,9 @@
 #include "main.h"
-
 /**
  * is_built_in - Checks if the arguments passed are built-in
  * @args: arguments
  * Return: 1
  */
-
 int is_built_in(char **args)
 {
 	int (*func)(char **args) = NULL;
@@ -14,7 +12,8 @@ int is_built_in(char **args)
 
 	if (args[0] == NULL)
 	{
-		return (1);
+		free_grid(args);
+		return (-1);
 	}
 	for (; bi[index].name != NULL; index++)
 	{
@@ -29,19 +28,15 @@ int is_built_in(char **args)
 	while (args[pos])
 	{
 		if (*args[pos] == '/')
-		{
 			return (executable(args[0], args));
-			/*break; removed because of betty */
-		}
-		else
+		if (*args[pos] != '/')
 		{
 			path = get_path(args);
+			if (!path)
+				return (-1);
 			command = concat_path(path, args);
 			if (!command)
-			{
-				free_grid(args);
 				return (-1);
-			}
 			return (executable(command, args));
 		}
 		pos++;

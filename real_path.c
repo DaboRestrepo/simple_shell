@@ -15,7 +15,7 @@ char *real_path(char *find_path)
 	if (path == NULL)
 	{
 		perror("Memory error in path malloc");
-		free(path);
+		/*free(path);*/
 		return (NULL);
 	}
 	while (find_path[index1])
@@ -24,6 +24,6 @@ char *real_path(char *find_path)
 		index1++;
 		index2++;
 	}
-	free(find_path);
+	/*free(find_path);*/
 	return (path);
 }
