@@ -15,14 +15,14 @@ int executable(char *command, char **args)
 	pid = fork();
 	if (pid == -1)
 	{
-		perror("No such file or directory");
+		/*perror("No such file or directory");*/
 		return (-1);
 	}
 	else if (pid == 0)
 	{
 		if (execve(command, args, NULL) == -1)
 		{
-			perror("Couldn't execute the command");
+			/*perror("Couldn't execute the command");*/
 			free_grid(args);
 			free(command);
 			return (-1);

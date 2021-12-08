@@ -21,7 +21,7 @@ char *read_line(void)
 		}
 		else
 		{
-			perror("No such file or directory\n");
+			/*perror("No such file or directory\n");*/
 			free(str);
 			exit(EXIT_FAILURE);
 		}
