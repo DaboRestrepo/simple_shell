@@ -8,8 +8,8 @@
 
 char *get_path(char **args)
 {
-	char **env = NULL, **parsing = NULL;
-	char *find_path = NULL, *concat_path = NULL;
+	char **env = NULL;
+	char *find_path = NULL;
 
 	env = environ;
 	while (*env)

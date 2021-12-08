@@ -7,9 +7,7 @@
 void prompt(void)
 {
 	char *string = "DANA# ", *str = NULL, **args = NULL;
-	size_t len = 0;
-	int status = 0, mode = 0;
-	ssize_t caracteres = 0;
+	int status = 0;
 
 	while (1)
 	{

@@ -21,6 +21,7 @@ int our_exit(char **args)
 int our_env(char **args)
 {
 	int i = 0;
+	(void)args;
 
 	while (environ[i])
 	{
