@@ -12,6 +12,7 @@ int is_built_in(char **args)
 
 	if (args[0] == NULL)
 	{
+		perror("No such file or directory");
 		free_grid(args);
 		return (-1);
 	}
