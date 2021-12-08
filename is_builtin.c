@@ -13,6 +13,7 @@ int is_built_in(char **args)
 	if (args[0] == NULL)
 	{
 		free_grid(args);
+		perror("./hsh");
 		return (-1);
 	}
 	for (; bi[index].name != NULL; index++)

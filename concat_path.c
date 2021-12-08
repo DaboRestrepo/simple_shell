@@ -22,6 +22,9 @@ char *concat_path(char *path, char **args)
 		{
 			perror("Memory error in concat the path");
 			free(command);
+			free(path);
+			free_grid(parsing);
+			free_grid(args);
 			return (NULL);
 		}
 		command = _strcpy(command, parsing[len]);
@@ -34,6 +37,7 @@ char *concat_path(char *path, char **args)
 		}
 		/*free(command);*/
 	}
+	free(command);
 	free_grid(parsing);
 	free_grid(args);
 	return (NULL);
