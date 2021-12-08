@@ -1,0 +1,76 @@
+.\" Manpage for simple shell.
+.\" Contact 3872@holberton.com and 3786@holbertonschool.com to correct errors or typos.
+.TH man 1 "06 December 2021" "1.0" "simple shell man page"
+.SH NAME
+Simple Shell
+
+.SH SYNOPSIS
+Simple Linux Shell program. This project is about coding a simple shell with simple usages in C.
+the shell is a program that takes commands from the keyboard and passes them to the machine to execute them through the kernel to perform. We can interact with this program through the terminal.
+
+The library "main.h" is needed to use this function, use: #include "main.h"
+
+.SH DESCRIPTION
+It's a command line interpreter that reads lines from either a file or the terminal, interprets them, and generally executes commands.It has direct access to the Kernel.
+
+.SH USAGE
+All the files are to be compiled on Ubuntu 14.04 LTS.
+You must download all the files contained in the project repository in order for this program to work.
+This program must be compiled with gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o
+
+.SH EXECUTION
+This Shell has 2 modes of execution: interactive and non-interactive.
+
+This depends on what the user sents to the program.
+
+This program detects if the input is sent through the built in echo with pipes | to execute it, which is the non-interactive Shell.
+
+The interactive mode allows us to input and execute commands for an infinite amount of times as long as the shell is running and it's not "exit" or "EOF"(Ctrl + d).
+This mode has an infinite loop that prints the prompt of our Shell (DANA#) and read any input of the user with getline.
+
+.SH RETURN VALUES
+If successful it will return 0 and execute the command. If it doesn't find a command, will return an error, and print a message with: 'No such file or directory'.
+
+.SH FORMAT COMMANDS
+
+ESPACIO PARA LOS COMANDOS
+
+.SH EXAMPLES
+
+
+.SH Non-interactive mode
+
+root@LAPTOP-NC133400:~/simple_shell_test# echo "/bin/ls" | ./hsh
+
+DANA# 1
+
+/bin/ls
+
+README.md built_func.c  hsh main.c  of_prompt.c  path.c  word_counter.c auxiliares.c  executable.c  is_builtin.c  main.h  parsing.c    read_line.c
+
+DANA# root@LAPTOP-NC133400:~/simple_shell_test#
+
+.SH Interactive mode
+
+root@LAPTOP-NC133400:~/simple_shell_test# ./hsh
+
+DANA# /bin/ls
+
+/bin/ls
+
+README.md built_func.c  hsh main.c  of_prompt.c  path.c word_counter.c auxiliares.c  executable.c  is_builtin.c  main.h  parsing.c    read_line.c
+
+DANA#
+
+
+.SH BUGS
+No bugs known til the date.
+
+.SH AUTHORS
+Written by Daniela Restrepo (3786@holbertonschool.com) and Ana María Rocha (3872@holberton.com)
+
+.SH DATE
+Written in December 6th, 2021.
+
+.SH COPYRIGHT
+No copyright license registered.
