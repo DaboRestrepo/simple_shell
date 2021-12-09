@@ -24,7 +24,7 @@ int executable(char *command, char **args)
 		perror("No such file or directory");
 		free(command);
 		free_grid(args);
-		return (1);/*1*/
+		return (1);
 	}
 	else if (pid == 0)
 	{
@@ -35,6 +35,8 @@ int executable(char *command, char **args)
 			free(command);
 			return (1);
 		}
+		else
+			free(command);
 	}
 	else
 	{

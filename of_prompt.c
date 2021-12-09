@@ -25,11 +25,11 @@ void prompt(void)
 		if (!args)
 			continue;
 		status = is_built_in(args);
-		/*if (status == -1)*/
-		/*{*/
-			/*write(STDOUT_FILENO, "./hsh: No such file or directory\n",*/
-			/*_strlen("./hsh: No such file or directory\n"));*/
-		/*}*/
+		if (status == -1)
+		{
+			write(STDOUT_FILENO, "./hsh: No such file or directory\n",
+			_strlen("./hsh: No such file or directory\n"));
+		}
 		(void)status;
 	}
 }
