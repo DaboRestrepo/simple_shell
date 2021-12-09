@@ -14,7 +14,7 @@ char *real_path(char *find_path)
 	path = malloc(sizeof(char) * (_strlen(find_path) + 1));
 	if (path == NULL)
 	{
-		/*perror("Memory error in path malloc");*/
+		perror("Memory error in path malloc");
 		free(path);
 		free(find_path);
 		return (NULL);
