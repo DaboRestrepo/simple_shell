@@ -11,13 +11,14 @@ int executable(char *command, char **args)
 {
 	pid_t pid = 0;
 	int status = 0;
-	/*struct stat st;
+	struct stat st;
 
 	if (stat(command, &st) != 0)
 	{
+		free(command);
 		perror("./hsh");
-		return (-1);
-	}*/
+		return (1);
+	}
 	pid = fork();
 	if (pid == -1)
 	{
