@@ -7,7 +7,7 @@
 int is_built_in(char **args)
 {
 	int (*func)(char **args) = NULL;
-	int index = 0, pos = 0, sub = 0, funcion = 0, exec = 0;
+	int index = 0, pos = 0, sub = 0, funcion = 0;
 	char *command = NULL, *path = NULL;
 
 	if (args[0] == NULL)
@@ -30,7 +30,6 @@ int is_built_in(char **args)
 	{
 		if (*args[pos] == '/')
 			return (executable(args[0], args));
-		exec = 0;
 		if (*args[pos] != '/')
 		{
 			path = get_path(args);
