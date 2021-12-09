@@ -63,9 +63,8 @@ char *_strcat(char *dest, char *src)
 
 char *_strdup(char *str)
 {
-	int i;
-	int str_len = 0;
-	char *str2;
+	int str_len = 0, i = 0;
+	char *str2 = NULL;
 
 	if (str == NULL)
 	{
@@ -73,12 +72,13 @@ char *_strdup(char *str)
 	}
 	str_len = _strlen(str);
 	str2 = malloc(sizeof(char) * (str_len + 1));
+	if (str2 == NULL)
+	{
+		free(str2);
+		return (NULL);
+	}
 	for (i = 0; i < str_len + 1; i++)
 	{
-		if (str2 == NULL)
-		{
-			return (NULL);
-		}
 		str2[i] = str[i];
 	}
 	return (str2);

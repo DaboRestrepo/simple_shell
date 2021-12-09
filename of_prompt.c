@@ -21,12 +21,13 @@ void prompt(void)
 			free(str);
 			continue;
 		}
-		args = token_1(str, " \n\t");
-		if (!args)
-			continue;
+		args = token_1(str, " \n\t");/*if (!args)continue;*/
 		status = is_built_in(args);
 		if (status == -1)
-			perror("./hsh");
+		{
+			write(STDOUT_FILENO, "./hsh: No such file or directory\n",
+			_strlen("./hsh: No such file or directory\n"));
+		}
 		(void)status;
 	}
 }

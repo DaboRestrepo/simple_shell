@@ -16,7 +16,7 @@ char **token_1(char *str, char *delim)
 	{
 		free(str);
 		free(split);
-		/*perror("Memory error in the parsing process\n");*/
+		perror("Memory error in the parsing process\n");
 		return (NULL);
 	}
 	split[pos] = _strdup(strtok(str, delim));

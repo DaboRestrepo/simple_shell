@@ -11,33 +11,35 @@ int executable(char *command, char **args)
 {
 	pid_t pid = 0;
 	int status = 0;
+	struct stat st;
 
+	if (stat(command, &st) != 0)
+	{
+		perror("./hsh");
+		return (-1);
+	}
 	pid = fork();
 	if (pid == -1)
 	{
-		/*perror("No such file or directory");*/
-		return (-1);
+		perror("No such file or directory");
+		free(command);
+		free_grid(args);
+		return (-1);/*1*/
 	}
 	else if (pid == 0)
 	{
-		if (execve(command, args, NULL) == -1)
+		if (execve(command, args, environ) == -1)
 		{
-			/*perror("Couldn't execute the command");*/
+			perror("Couldn't execute the command");
 			free_grid(args);
 			free(command);
 			return (-1);
-		}
-		else
-		{
-			free_grid(args);
-			free(command);
 		}
 	}
 	else
 	{
 		wait(&status);
-		free_grid(args);
-		/*free(command);*/
+		free_grid(args);/*free(command);*/
 	}
 	return (1);
 }
