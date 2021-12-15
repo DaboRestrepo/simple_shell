@@ -33,7 +33,8 @@ If successful it will return 0 and execute the command. If it doesn't find a com
 
 .SH FORMAT COMMANDS
 
-ESPACIO PARA LOS COMANDOS
+This shell have been tested with the following commands that are proved to work:
+/bin/ls, ls, pwd, ls -la, env, exit, (ctrl + d).
 
 .SH EXAMPLES
 

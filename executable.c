@@ -15,6 +15,7 @@ int executable(char *command, char **args)
 
 	if (stat(command, &st) != 0)
 	{
+		free(command);
 		perror("./hsh");
 		return (1);
 	}
