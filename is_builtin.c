@@ -7,8 +7,7 @@
 int is_built_in(char **args)
 {
 	int (*func)(char **args) = NULL;
-	int index = 0, pos = 0, sub = 0, funcion = 0;
-	char *command = NULL, *path = NULL;
+	int index = 0, sub = 0, funcion = 0, result = 0;
 
 	if (args[0] == NULL)
 	{
@@ -26,10 +25,28 @@ int is_built_in(char **args)
 			return (funcion);
 		}
 	}
+	result = no_built_in(args);
+	return (result);
+}
+
+/**
+ * no_built_in - Checks if the arguments passed aren't built-in.
+ * @args: arguments.
+ * Return: 0.
+ */
+int no_built_in(char **args)
+{
+	int pos = 0, result = 0;
+	char *command = NULL, *path = NULL;
+
 	while (args[pos])
 	{
 		if (*args[pos] == '/')
-			return (executable(args[0], args));
+		{
+			result = executable(args[0], args);
+			free(command);
+			return (result);
+		}
 		if (*args[pos] != '/')
 		{
 			path = get_path(args);
@@ -38,9 +55,11 @@ int is_built_in(char **args)
 			command = concat_path(path, args);
 			if (!command)
 				return (-1);
-			return (executable(command, args));
+			result = executable(command, args);
+			free(command);
+			return (result);
 		}
 		pos++;
 	}
-	return (1);
+	return (0);
 }

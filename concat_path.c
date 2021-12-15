@@ -20,7 +20,7 @@ char *concat_path(char *path, char **args)
 		+ _strlen(args[0]) + 2));
 		if (command == NULL)
 		{
-			/*perror("Memory error in concat the path");*/
+			perror("Memory error in concat the path\n");
 			free(command);
 			free(path);
 			free_grid(parsing);
@@ -35,10 +35,8 @@ char *concat_path(char *path, char **args)
 			free_grid(parsing);
 			return (command);
 		}
-		/*free(command);*/
+		free(command);
 	}
-	/*free(command);*/
 	free_grid(parsing);
-	free_grid(args);
 	return (NULL);
 }

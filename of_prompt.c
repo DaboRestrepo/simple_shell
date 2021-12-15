@@ -30,6 +30,7 @@ void prompt(void)
 			write(STDOUT_FILENO, "./hsh: No such file or directory\n",
 			_strlen("./hsh: No such file or directory\n"));
 		}
+		free_grid(args);
 		(void)status;
 	}
 }
